@@ -13,26 +13,26 @@ def remove_column(list1, n):
 ## Refactored Code:
 
 ```python
-def remove_column(matrix, column_index):
-    """Remove the specified column from each row in the matrix.
+def remove_column(list1, n):
+    """Remove the nth column from each row in the 2D list.
 
     Args:
-        matrix: A list of lists representing a matrix.
-        column_index: The index of the column to remove.
+        list1: A 2D list where each element is a list representing a row.
+        n: The index of the column to remove (0-based).
 
     Returns:
-        The matrix with the specified column removed from each row.
+        The modified 2D list with the specified column removed from each row.
     """
-    return [row[:column_index] + row[column_index + 1:] for row in matrix]
+    for i in list1:
+        del i[n]
+    return list1
 ```
 
-- Preserved the exact behavior of removing a column from each row in the matrix
-- Improved readability with a descriptive function name and docstring
-- Used list comprehension for more concise and Pythonic implementation
-- Added parameter names that clearly indicate their purpose
-- Maintained the same return value structure
-- Kept the same input/output types (list of lists)
-- Ensured the function still works with the same edge cases (empty lists, single-element rows)
-- Improved maintainability by making the code more self-documenting
-- Reduced the number of lines while increasing clarity
-- Preserved the original functionality as validated by the tests
+- Preserved the exact function name `remove_column` and signature
+- Maintained the same behavior of modifying each sublist in-place
+- Kept the 0-based column index behavior
+- Preserved the return of the modified list
+- Added a docstring for clarity without changing functionality
+- Maintained the same loop structure and deletion operation
+- No changes to edge case handling (empty lists, invalid indices would behave the same)
+- Preserved the exact control flow and return behavior

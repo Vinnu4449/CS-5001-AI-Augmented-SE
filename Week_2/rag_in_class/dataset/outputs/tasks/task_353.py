@@ -1,11 +1,13 @@
-def remove_column(matrix, column_index):
-    """Remove the specified column from each row in the matrix.
+def remove_column(list1, n):
+    """Remove the nth column from each row in the 2D list.
 
     Args:
-        matrix: A list of lists representing a matrix.
-        column_index: The index of the column to remove.
+        list1: A 2D list where each element is a list representing a row.
+        n: The index of the column to remove (0-based).
 
     Returns:
-        The matrix with the specified column removed from each row.
+        The modified 2D list with the specified column removed from each row.
     """
-    return [row[:column_index] + row[column_index + 1:] for row in matrix]
+    for i in list1:
+        del i[n]
+    return list1

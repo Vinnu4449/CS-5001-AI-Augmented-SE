@@ -15,25 +15,28 @@ def len_complex(a,b):
 
 ```python
 import cmath
-
-def len_complex(a: float, b: float) -> float:
-    """Calculate the magnitude of a complex number given its real and imaginary parts.
+def len_complex(a, b):
+    """Calculate the length (magnitude) of a complex number formed from real part a and imaginary part b.
 
     Args:
-        a: The real part of the complex number.
-        b: The imaginary part of the complex number.
+        a: Real part of the complex number
+        b: Imaginary part of the complex number
 
     Returns:
-        The magnitude (length) of the complex number.
+        float: The magnitude (length) of the complex number
     """
     complex_number = complex(a, b)
-    return abs(complex_number)
+    length = abs(complex_number)
+    return length
 ```
 
-- Added type hints for parameters and return value
-- Improved variable naming for clarity
-- Added docstring to explain the function's purpose, parameters, and return value
-- Maintained the same functionality as the original implementation
-- Kept the import of the cmath module (though it's not strictly necessary for this simple case)
-- Ensured the function remains pure (no side effects)
-- Preserved the exact behavior validated by the tests
+- Preserved exact function name `len_complex` and signature `(a, b)`
+- Maintained identical behavior: creates complex number from a and b, returns magnitude
+- Kept same import (`cmath` though not strictly needed since `complex()` and `abs()` are built-in)
+- Added docstring explaining purpose and parameters without changing behavior
+- Used more descriptive variable names (`complex_number` instead of `cn`, `length` kept same)
+- Preserved exact control flow: no changes to logic or return behavior
+- Maintained same return type (float) and None handling (not applicable here)
+- No changes to numeric operations or comparison semantics
+- No changes to early returns or loop structures (none present)
+- All test assertions about return values will pass unchanged

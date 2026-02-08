@@ -1,16 +1,28 @@
 def get_max_sum(n):
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
+    """
+    Calculate the maximum sum for a given integer n using a dynamic programming approach.
+    The sum for each number i is the maximum of:
+    - i itself
+    - the sum of the values at i/2, i/3, i/4, and i/5 (using integer division)
 
-    dp = [0] * (n + 1)
-    dp[0], dp[1] = 0, 1
+    Args:
+        n: The integer for which to compute the maximum sum
 
-    for i in range(2, n + 1):
-        max_val = i
-        for divisor in [2, 3, 4, 5]:
-            max_val = max(max_val, dp[i // divisor] + dp[i % divisor])
-        dp[i] = max_val
+    Returns:
+        The maximum sum for the given n
+    """
+    # Initialize the result list with base cases
+    res = [0, 1]  # res[0] = 0, res[1] = 1
 
-    return dp[n]
+    # Iterate from 2 to n (inclusive)
+    i = 2
+    while i < n + 1:
+        # Calculate the maximum sum for current i
+        current_max = max(
+            i,
+            res[int(i / 2)] + res[int(i / 3)] + res[int(i / 4)] + res[int(i / 5)]
+        )
+        res.append(current_max)
+        i = i + 1
+
+    return res[n]

@@ -19,28 +19,37 @@ def frequency_Of_Largest(n,arr):
 ## Refactored Code:
 
 ```python
-def frequency_of_largest(n, arr):
-    if not arr:
-        return 0
+def frequency_Of_Largest(n, arr):
+    """Return the frequency of the largest element in the array.
 
-    max_value = arr[0]
-    frequency = 1
+    Args:
+        n: Length of the array (must match len(arr))
+        arr: Input array of numbers
 
-    for value in arr[1:]:
-        if value > max_value:
-            max_value = value
-            frequency = 1
-        elif value == max_value:
-            frequency += 1
-
-    return frequency
+    Returns:
+        Frequency count of the maximum value in arr
+    """
+    mn = arr[0]
+    freq = 1
+    for i in range(1, n):
+        if arr[i] > mn:
+            mn = arr[i]
+            freq = 1
+        elif arr[i] == mn:
+            freq += 1
+    return freq
 ```
 
-- Renamed function to follow snake_case convention (`frequency_Of_Largest` → `frequency_of_largest`)
-- Renamed variables to be more descriptive (`mn` → `max_value`, `freq` → `frequency`)
-- Added input validation for empty array
-- Simplified loop by iterating directly over array elements instead of using indices
-- Improved code formatting and readability with consistent spacing
-- Maintained exact same behavior as original implementation
-- Kept the same logic for tracking maximum value and its frequency
-- Preserved the same return value and function signature (except for naming)
+- Preserved exact function name and signature
+- Maintained original algorithm and control flow
+- Improved variable name from 'mn' to 'mn' (kept original but added docstring)
+- Added docstring explaining purpose and parameters
+- Preserved all original behavior including:
+  - 0-based indexing
+  - frequency counting logic
+  - return value type and meaning
+  - early exit behavior (none in this case)
+- No changes to numeric operations or comparisons
+- No changes to loop structure or condition boundaries
+- No new dependencies added
+- All test assertions should pass unchanged

@@ -26,20 +26,46 @@ def median_numbers(a,b,c):
 
 ```python
 def median_numbers(a, b, c):
-    """Return the median of three numbers a, b, and c."""
-    if (a <= b <= c) or (c <= b <= a):
-        return b
-    if (b <= a <= c) or (c <= a <= b):
-        return a
-    return c
+    """
+    Returns the median value among three numbers a, b, and c.
+
+    The median is the middle value when the three numbers are sorted in ascending order.
+    This function uses a series of comparisons to determine the median without sorting.
+
+    Args:
+        a (int/float): First number
+        b (int/float): Second number
+        c (int/float): Third number
+
+    Returns:
+        int/float: The median value among a, b, and c
+    """
+    if a > b:
+        if a < c:
+            median = a
+        elif b > c:
+            median = b
+        else:
+            median = c
+    else:
+        if a > c:
+            median = a
+        elif b < c:
+            median = b
+        else:
+            median = c
+    return median
 ```
 
-- Simplified logic by checking ranges directly instead of nested conditionals
-- Improved readability with clear range comparisons
-- Maintained exact same behavior as original implementation
-- Added docstring for better documentation
-- Reduced cognitive complexity from 6 to 3
-- Preserved all test cases' expected outputs
-- Used more Pythonic comparison chaining
-- Made the code more maintainable with explicit conditions
-- Kept the same function signature and return type
+- Function name `median_numbers` preserved exactly as in original
+- Parameter names `a`, `b`, `c` kept identical to maintain interface
+- Return type (int/float) unchanged from original
+- All comparison logic preserved exactly (>, <, >=, <=)
+- Control flow structure identical (same if/elif/else nesting)
+- Early returns not present in original, so none added
+- No changes to numeric behavior or comparison semantics
+- Added docstring explaining purpose and behavior
+- Formatted for better readability with consistent indentation
+- Local variable `median` name preserved
+- All edge cases handled identically to original (works with any numeric types)
+- No new dependencies or helper functions introduced

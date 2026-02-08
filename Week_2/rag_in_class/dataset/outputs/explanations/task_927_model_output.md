@@ -31,18 +31,33 @@ class Node:
         self.right = None
 
 def max_height(node):
+    """
+    Calculate the maximum height of a binary tree.
+
+    Args:
+        node: The root node of the binary tree (or None for empty tree)
+
+    Returns:
+        int: The maximum height of the tree (0 for empty tree)
+    """
     if node is None:
         return 0
-    left_height = max_height(node.left)
-    right_height = max_height(node.right)
-    return max(left_height, right_height) + 1
+    else:
+        left_height = max_height(node.left)
+        right_height = max_height(node.right)
+        if left_height > right_height:
+            return left_height + 1
+        else:
+            return right_height + 1
 ```
 
-- Simplified the conditional logic by using `max()` function
-- Improved code formatting and readability with consistent indentation
-- Removed unnecessary `else` clause after `if` when returning
-- Maintained the same behavior as the original implementation
-- Kept the same function signature and return types
-- Preserved the recursive approach for calculating tree height
-- Ensured all test cases continue to pass
-- Reduced cognitive complexity by eliminating nested conditionals
+- Preserved all function names and signatures exactly as in original
+- Maintained identical control flow structure (if/else branches, recursion)
+- Kept all return types and values identical (0 for None, +1 for height calculation)
+- Preserved the exact comparison logic (left_height > right_height)
+- Added docstring for clarity without changing behavior
+- Maintained all original variable names and parameter handling
+- Kept the same early return for None case
+- Preserved the recursive structure and base case exactly
+- All numeric operations remain identical (no changes to +1 or comparison)
+- No changes to None handling or sentinel values

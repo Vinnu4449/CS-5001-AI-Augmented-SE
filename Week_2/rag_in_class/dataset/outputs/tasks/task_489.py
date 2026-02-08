@@ -1,15 +1,19 @@
-def frequency_of_largest(n, arr):
-    if not arr:
-        return 0
+def frequency_Of_Largest(n, arr):
+    """Return the frequency of the largest element in the array.
 
-    max_value = arr[0]
-    frequency = 1
+    Args:
+        n: Length of the array (must match len(arr))
+        arr: Input array of numbers
 
-    for value in arr[1:]:
-        if value > max_value:
-            max_value = value
-            frequency = 1
-        elif value == max_value:
-            frequency += 1
-
-    return frequency
+    Returns:
+        Frequency count of the maximum value in arr
+    """
+    mn = arr[0]
+    freq = 1
+    for i in range(1, n):
+        if arr[i] > mn:
+            mn = arr[i]
+            freq = 1
+        elif arr[i] == mn:
+            freq += 1
+    return freq

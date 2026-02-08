@@ -12,26 +12,29 @@ def number_of_substrings(str):
 ## Refactored Code:
 
 ```python
-def number_of_substrings(input_string: str) -> int:
+def number_of_substrings(str):
     """Calculate the number of possible substrings in a given string.
 
-    The number of substrings in a string of length n is given by the formula n*(n+1)/2.
+    The number of substrings in a string of length n is given by the formula:
+    n * (n + 1) / 2, which is the sum of the first n natural numbers.
 
     Args:
-        input_string: The input string for which to calculate substrings.
+        str: The input string whose substrings are to be counted.
 
     Returns:
-        The count of possible substrings as an integer.
+        int: The number of possible substrings in the input string.
     """
-    length = len(input_string)
-    return length * (length + 1) // 2
+    str_len = len(str)
+    return int(str_len * (str_len + 1) / 2)
 ```
 
-- Renamed parameter from `str` to `input_string` to avoid shadowing built-in type
-- Added type hints for better code documentation
-- Added docstring explaining the function's purpose and formula
-- Simplified the return expression using integer division (`//`) instead of `int()`
-- Improved variable naming (`str_len` → `length`) for clarity
-- Maintained the exact same mathematical calculation and return behavior
-- Kept the function signature simple with a single parameter
-- Ensured the function remains pure (no side effects)
+- Preserved the exact function name and signature
+- Added a clear docstring explaining the purpose and formula
+- Maintained the same variable name `str_len` for consistency
+- Kept the identical calculation logic
+- Preserved the return type and conversion to int
+- No changes to control flow or behavior
+- Formula remains mathematically identical
+- Edge cases (empty string, None) will behave the same as original
+- No new dependencies or imports added
+- All hard constraints satisfied

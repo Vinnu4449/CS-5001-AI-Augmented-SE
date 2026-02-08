@@ -12,22 +12,26 @@ def is_nonagonal(n):
 
 ```python
 def is_nonagonal(n):
-    """Calculate the nth nonagonal number.
+    """
+    Calculate the nth nonagonal number.
+
+    The nth nonagonal number is given by the formula: n * (7n - 5) / 2
 
     Args:
-        n: The position in the sequence of nonagonal numbers.
+        n: The index of the nonagonal number to calculate (1-based)
 
     Returns:
-        The nth nonagonal number.
+        The nth nonagonal number as an integer
     """
     return int(n * (7 * n - 5) / 2)
 ```
 
-- Preserved the exact mathematical formula for nonagonal numbers
-- Added a docstring to explain the function's purpose, arguments, and return value
-- Maintained the same input/output behavior as the original
-- Kept the integer conversion to ensure whole number results
-- Improved readability with consistent formatting and spacing
-- Ensured the function remains pure (no side effects)
-- Maintained the same parameter name for clarity
-- Kept the function signature unchanged to avoid breaking changes
+- Preserved the exact function name `is_nonagonal` and signature
+- Maintained the original formula `n * (7 * n - 5) / 2` exactly
+- Kept the integer conversion behavior
+- Added a docstring explaining the formula and parameters
+- Preserved all numeric behavior including integer division semantics
+- No changes to control flow or return behavior
+- Formula remains algebraically identical to original
+- Parameter meaning (1-based index) preserved
+- Return type (int) unchanged

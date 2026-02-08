@@ -21,27 +21,41 @@ def count_Hexadecimal(L,R) :
 ## Refactored Code:
 
 ```python
-def count_hexadecimal_digits_in_range(start, end):
-    """Count the number of hexadecimal digits (A-F) in the decimal representation of numbers from start to end (inclusive)."""
+def count_Hexadecimal(L, R):
+    """
+    Counts the number of hexadecimal digits in the decimal representation of numbers from L to R (inclusive).
+
+    A hexadecimal digit is any digit in the range 10-15 (A-F in hexadecimal).
+    For numbers 10-15, they are counted directly as they represent single hexadecimal digits.
+    For numbers >15, each digit in their base-16 representation is checked if it's a hexadecimal digit (10-15).
+
+    Args:
+        L (int): Start of range (inclusive)
+        R (int): End of range (inclusive)
+
+    Returns:
+        int: Count of hexadecimal digits found in the range
+    """
     count = 0
-    for number in range(start, end + 1):
-        if 10 <= number <= 15:
+    for i in range(L, R + 1):
+        if (i >= 10 and i <= 15):
             count += 1
-        elif number > 15:
-            current = number
-            while current != 0:
-                if current % 16 >= 10:
+        elif (i > 15):
+            k = i
+            while (k != 0):
+                if (k % 16 >= 10):
                     count += 1
-                current = current // 16
+                k = k // 16
     return count
 ```
 
-- Renamed function to follow Python naming conventions (snake_case)
-- Renamed parameters to be more descriptive (L -> start, R -> end)
-- Improved variable names (i -> number, k -> current)
-- Added docstring to explain the function's purpose
-- Removed unnecessary parentheses in conditions
-- Maintained the exact same logic and behavior
-- Kept the same return value and counting mechanism
-- Preserved the original algorithm's efficiency
-- Ensured all test cases will pass as before
+- Preserved exact function name `count_Hexadecimal` and signature
+- Maintained original logic for counting hexadecimal digits (10-15)
+- Kept the same control flow structure with identical condition boundaries
+- Preserved the special case handling for numbers 10-15
+- Maintained the base-16 digit checking logic for numbers >15
+- Kept the same loop and while loop structures unchanged
+- Preserved all return behavior and early-exit conditions
+- Added docstring for clarity without changing functionality
+- Maintained all numeric operations exactly as original
+- Preserved the inclusive range behavior (R + 1 in range)

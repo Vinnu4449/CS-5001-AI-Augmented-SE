@@ -1,21 +1,20 @@
-def sum_pairs(arr, n):
-    """Calculate the sum of pairs in the array with alternating signs.
+def sum_Pairs(arr, n):
+    """
+    Calculate a weighted sum of array elements based on their positions.
 
-    For each element at index i (0-based), the contribution to the sum is:
-    - Positive if the index is even (0, 2, 4, ...)
-    - Negative if the index is odd (1, 3, 5, ...)
+    For each element at index i (0-based), the weight is:
+    - Positive contribution: i * arr[i]
+    - Negative contribution: (n-1-i) * arr[i]
+    The total sum is the sum of all these weighted contributions.
 
     Args:
-        arr: List of numbers
-        n: Number of elements to consider (from the end of the array)
+        arr: List of numbers to process
+        n: Number of elements to consider (must be <= len(arr))
 
     Returns:
-        The calculated sum
+        The computed weighted sum
     """
-    total = 0
+    sum = 0
     for i in range(n - 1, -1, -1):
-        if (n - 1 - i) % 2 == 0:
-            total += arr[i]
-        else:
-            total -= arr[i]
-    return total
+        sum += i * arr[i] - (n - 1 - i) * arr[i]
+    return sum
